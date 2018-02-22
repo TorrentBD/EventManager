@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Student;
 
 class HomeController extends Controller
 {
@@ -21,8 +22,18 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        $users = Student::paginate(5);
+        
+        return view('admins.home')->with('tasks',$users);
+    }
+
+    public function delete($id)
+    {
+        $task = Student::findOrFail($id);
+
+        $task->delete();
+        return redirect('/home');
     }
 }

@@ -20,3 +20,4 @@ Route::post('/create', 'StudentController@create')->name('create');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/delete/{id}', 'HomeController@delete')->name('delete');

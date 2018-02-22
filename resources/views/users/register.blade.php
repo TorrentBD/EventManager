@@ -13,7 +13,7 @@
                     <form class="form-horizontal" method="POST" action="{{url('create')}}">
                         {{ csrf_field() }}
                         <div> 
-                          <p style="font-weight: bold;font-size: 20px;text-align: center;"> <i class="fas fa-bell"></i> &nbsp All information is required .</p>      
+                          <p style="font-weight: bold;font-size: 20px;text-align: center;"> <i class="fas fa-bell"></i> &nbsp All information is Required .</p>      
                         </div>
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
