@@ -21,3 +21,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/delete/{id}', 'HomeController@delete')->name('delete');
+
+Route::get('/admin/{id}', 'HomeController@show')->name('admin');
+ 

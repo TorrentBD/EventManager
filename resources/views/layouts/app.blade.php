@@ -47,7 +47,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('register') }}" class="btn disabled">Register</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
@@ -81,7 +81,14 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
-     <script src="{{ asset('bootstrap/js/jquery-1.9.0.min.js') }}"></script>
+      @yield('scripts')
+
+    <!-- Bootstrap JavaScript -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.1/js/bootstrap.min.js"></script>
+
+    
+ 
+      
 
 </body>
 </html>

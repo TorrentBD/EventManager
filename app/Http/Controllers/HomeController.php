@@ -36,4 +36,6 @@ class HomeController extends Controller
         $task->delete();
         return redirect('/home');
     }
+
+     
 }

@@ -43,7 +43,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         
                             <li><a href="{{ url('/') }}">Student</a></li>
-                            <li><a href="{{ route('register') }}">Admin</a></li>
+                            <li><a href="{{ route('login') }}">Admin</a></li>
                          
                           
                     </ul>
@@ -58,5 +58,6 @@
     <script src="{{ asset('js/app.js') }}"></script>
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
 </body>
 </html>

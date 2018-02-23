@@ -5,7 +5,8 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Candidate List</div>
+                <div class="panel-heading">Candidate List </div>
+
 
                 <div class="panel-body">
                     @if (session('status'))
@@ -39,36 +40,9 @@
                                           <td>{{$task->phone}}</td>
                                           <td>
                                              <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#view">
-  View
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="view" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Candidate Information</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Name : {{$task->name}} &nbsp;<br>
-        Roll : {{$task->roll}} &nbsp;<br>
-        Father Name : {{$task->fname}} &nbsp;<br>
-        Birth Date : {{$task->bdate}} &nbsp;<br>
-        Email : {{$task->email}} &nbsp;<br>
-        Phone : {{$task->phone}} &nbsp;<br>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-         
-      </div>
-    </div>
-  </div>
-</div> &nbsp;
-
+                                            <button class="show-modal btn btn-success" data-name="{{$task->name}}" data-fname="{{$task->fname}}" data-roll="{{$task->roll}}" data-email="{{$task->email}}" data-aca="{{$task->aca}}" data-phone="{{$task->phone}}">
+                                        <span class="glyphicon glyphicon-eye-open"></span> Show</button>
+                                            &nbsp;
                                           
                                             <a href=" {{ url('delete',$task->id ) }} " onclick="return confirm('Are you sure?')"><button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove-circle"></span> Delete</button></a>&nbsp;
                                           </td>
@@ -81,8 +55,9 @@
                      <!---->   
                                 </tbody>
                               </table>
+
                               
-                                @if(count($tasks)==0)                  
+                               @if(count($tasks)==0)                  
                                   <div class="col-lg-12 center">
                                      Empty List
                                   </div>                                
@@ -100,8 +75,84 @@
 
                     <!-- end-->
                 </div>
+
+                <!-- Modal form to show a post -->
+                <div id="showModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">×</button>
+                                <h4 class="modal-title"></h4>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="name">Name:</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="name_show" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="roll">Roll:</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="roll_show" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="fname">Father Name:</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="fname_show" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="email">Email:</label>
+                                        <div class="col-sm-10">
+                                            <input type="name" class="form-control" id="email_show" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="email">Phone:</label>
+                                        <div class="col-sm-10">
+                                            <input type="name" class="form-control" id="phone_show" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="aca">Academic:</label>
+                                        <div class="col-sm-10">
+                                            <textarea class="form-control" id="aca_show" cols="40" rows="5" disabled></textarea>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-warning" data-dismiss="modal">
+                                        <span class='glyphicon glyphicon-remove'></span> Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
 </div>
 @endsection
+
+@section('scripts')
+  <script type="text/javascript">
+  // Show a post
+        $(document).on('click', '.show-modal', function() {
+            $('.modal-title').text('Show');
+            $('#name_show').val($(this).data('name'));
+            $('#roll_show').val($(this).data('roll'));
+            $('#fname_show').val($(this).data('fname'));
+            $('#email_show').val($(this).data('email'));
+            $('#phone_show').val($(this).data('phone'));
+            $('#aca_show').val($(this).data('aca'));
+            $('#showModal').modal('show');
+        });
+  </script>
+@endsection
+
+ 
