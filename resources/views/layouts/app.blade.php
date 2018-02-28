@@ -47,7 +47,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}" class="btn disabled">Register</a></li>
+                            <li><a href="{{ route('register') }}" class="btn">Register</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
@@ -85,7 +85,7 @@
                     <li><a href="{{url('/')}}">Speaker</a></li>
                     <li><a href="{{url('/')}}">Schedule</a></li>
                     <li><a href="{{url('/')}}">Partner</a></li>
-                    <li><a href="{{url('/')}}">FAQ</a></li>
+                    <li><a href="{{url('/fqa')}}">FAQ</a></li>
                     <li><a href="{{url('/')}}">Email</a></li>
                   </ul>
                 </div>

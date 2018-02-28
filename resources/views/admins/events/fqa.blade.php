@@ -4,7 +4,7 @@
 
             <div class="panel panel-default">
               
-                <div class="panel-heading"><a href="{{url('/addevent')}}" class="btn btn-success">Add New Event</a></div>
+                <div class="panel-heading"><a href="{{url('/cfqa')}}" class="btn btn-success">Add New FQA</a></div>
              
 
                 <div class="panel-body">
@@ -22,9 +22,7 @@
                                   <tr>                       
                                     <th>Event ID</th>
                                     <th>Title</th>
-                                    <th>Description</th>
-                                    <th>Start Date </th>
-                                    <th>End Date </th>
+                                    <th>FQA</th>
                                     <th>User ID </th>           
                                     <th>Action </th>
                                   </tr>
@@ -35,18 +33,14 @@
                                     @foreach ($tasks as $task)
                                         <tr>
                                           <td>{{$task->id}}</td>
-                                          <td>{{$task->title}}</td>
-                                          <td>{{$task->content}}</td>
-                                          <td>{{$task->sdate}}</td>
-                                          <td>{{$task->edate}}</td>
+                                          <td>{{$task->event}}</td>
+                                          <td>{{$task->fqa}}</td>
                                           <td>{{$task->user_id}}</td>
                                           <td>
                                              <!-- Button trigger modal -->
-                                            <button class="show-modal btn btn-success" data-id="{{$task->id}}" data-title="{{$task->title}}" data-dec="{{$task->content}}" data-edate="{{$task->edate}}">
+                                            <button class="show-modal btn btn-success" data-id="{{$task->id}}" data-title="{{$task->title}}" data-fqa="{{$task->fqa}}" data-user="{{$task->u_id}}">
                                         <span class="glyphicon glyphicon-eye-open"></span> Show</button>
                                             &nbsp;
-
-                                            <a href=" {{ url('edit',$task->id) }} "><button class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit</button></a>&nbsp;
                                           
                                             <a href=" {{ url('delete',$task->id ) }} " onclick="return confirm('Are you sure ?')"><button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove-circle"></span> Delete</button></a>&nbsp;
                                           </td>
@@ -103,24 +97,13 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-sm-2" for="fname">Description:</label>
+                                        <label class="control-label col-sm-2" for="fname">FQA:</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="content_show" disabled>
+                                            <input type="text" class="form-control" id="fqa_show" disabled>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-sm-2" for="email">Start Date:</label>
-                                        <div class="col-sm-10">
-                                            <input type="name" class="form-control" id="sdate_show" disabled>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="control-label col-sm-2" for="email">End Date:</label>
-                                        <div class="col-sm-10">
-                                            <input type="name" class="form-control" id="edate_show" disabled>
-                                        </div>
-                                    </div>                                   
+                                     
+                                                                       
                                 </form>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-warning" data-dismiss="modal">
@@ -145,9 +128,7 @@
             $('.modal-title').text('Show');
             $('#id_show').val($(this).data('id'));
             $('#title_show').val($(this).data('title'));
-            $('#content_show').val($(this).data('content'));
-            $('#sdate_show').val($(this).data('sdate'));
-            $('#edate_show').val($(this).data('edate'));
+            $('#fqa_show').val($(this).data('fqa'));
             $('#showModal').modal('show');
         });
   </script>

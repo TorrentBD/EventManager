@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Student;
 use App\Event;
+use App\Fqa;
 class HomeController extends Controller
 {
     /**
@@ -62,12 +64,57 @@ class HomeController extends Controller
             $post = new Event();
             $post->title = $request->title;
             $post->content = $request->content;
+            $post->sdate = $request->sdate;
             $post->edate = $request->edate;
+            $post->user_id = $request->user()->id;
             $post->save();
 
         return redirect('/about');
     }
 
+    public function edit($id)
+    {
+        $post= Event::findOrFail($id);
+
+        return view('admins.events.update')->with('tasks',$post);
+    }
+
+    public function update($id, Request $request)
+    {
+        $task = Event::findOrFail($id);
+         
+        $input = $request->all();
+
+        $task->fill($input)->save();         
+
+        return redirect('/about');
+    }
+
+    public function fqa()
+    {
+        $fqa = Fqa::paginate(5);
+             
+         return view('admins.events.fqa')->with('tasks',$fqa);;
+    }
+
+    public function create_fqa()
+    {
+        $event = Event::all();
+
+         return view('admins.events.create_fqa')->with('tasks',$event);
+    }
+
+    public function fqaadd(Request $request)
+    {
+        $fqa = new Fqa();
+
+        $fqa->event = $request->cars;
+        $fqa->fqa = $request->fqa;
+        $fqa->user_id = $request->user()->id;
+        $fqa->save();
+
+        return redirect('/fqa');
+    }
 
      
 }

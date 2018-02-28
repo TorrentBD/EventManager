@@ -7,6 +7,7 @@ use App\Mail\WelcomeMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use App\Student;
+use App\Event;
 
 class StudentController extends Controller
 {
@@ -35,4 +36,15 @@ class StudentController extends Controller
  
         return redirect('/');
     }
+
+
+    public function about()
+    {
+        $about = Event::all(); 
+        return view('users.about')->with('tasks',$about);
+    }
+
+
+
+
 }

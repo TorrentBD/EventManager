@@ -12,13 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('users.register');
-});
-
-Route::get('/event', function () {
     return view('users.home');
 });
-
+Route::get('/uabout', 'StudentController@about')->name('about');
+ 
 Route::post('/create', 'StudentController@create')->name('create');
 
 Auth::routes();
@@ -32,7 +29,14 @@ Route::get('/candidate', 'HomeController@candidate')->name('candidate');
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/addevent', 'HomeController@addevent')->name('addevent');
 Route::post('/e_create', 'HomeController@e_create')->name('e_create');
+Route::get('/edit/{id}', 'HomeController@edit')->name('edit');
+Route::post('/update/{id}', 'HomeController@update')->name('update');
 Route::get('/delete/{id}', 'HomeController@delete')->name('delete');
+
+
+Route::get('/fqa', 'HomeController@fqa')->name('fqa');
+Route::get('/cfqa', 'HomeController@create_fqa')->name('cfqa');
+Route::post('/addfqa', 'HomeController@fqaadd')->name('addfqa');
 
 
  
