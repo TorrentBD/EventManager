@@ -11,7 +11,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                     <img src="images/lego.png" width="300px" height="300px">
+                     <img src="images/logo.png" width="300px" height="300px" alt="Event Manager">
                 </div>
                          
             </div>

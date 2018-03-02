@@ -1,10 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+                @if(Session::has('flash_message'))
+                    <div class="alert alert-success">
+                        {{ Session::get('event_m') }}
+                    </div>
+                @endif
 
             <div class="panel panel-default">
               
-                <div class="panel-heading"><a href="{{url('/addevent')}}" class="btn btn-success">Add New Event</a></div>
+                <div class="panel-heading"><a href="{{url('admin/addevent')}}" class="btn btn-success">Add New Event</a></div>
              
 
                 <div class="panel-body">
@@ -13,7 +18,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-       
+                    
 
                     <!-- start-->
                     <div class="table-responsive">
@@ -42,13 +47,15 @@
                                           <td>{{$task->user_id}}</td>
                                           <td>
                                              <!-- Button trigger modal -->
-                                            <button class="show-modal btn btn-success" data-id="{{$task->id}}" data-title="{{$task->title}}" data-dec="{{$task->content}}" data-edate="{{$task->edate}}">
+                                            <button class="show-modal btn btn-success" data-id="{{$task->id}}" data-title="{{$task->title}}" data-content="{{$task->content}}"
+                                            data-sdate="{{$task->sdate}}"
+                                             data-edate="{{$task->edate}}">
                                         <span class="glyphicon glyphicon-eye-open"></span> Show</button>
                                             &nbsp;
 
-                                            <a href=" {{ url('edit',$task->id) }} "><button class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit</button></a>&nbsp;
+                                            <a href=" {{ url('admin/edit',$task->id) }} "><button class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit</button></a>&nbsp;
                                           
-                                            <a href=" {{ url('delete',$task->id ) }} " onclick="return confirm('Are you sure ?')"><button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove-circle"></span> Delete</button></a>&nbsp;
+                                            <a href=" {{ url('admin/delete',$task->id ) }} " onclick="return confirm('Are you sure ?')"><button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove-circle"></span> Delete</button></a>&nbsp;
                                           </td>
 
 
@@ -105,7 +112,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-sm-2" for="fname">Description:</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="content_show" disabled>
+                                            <textarea class="form-control" id="content_show" disabled></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -138,14 +145,13 @@
 @endsection
 
 @section('scripts')
-  <script type="text/javascript">
-         
+  <script type="text/javascript">    
         // view
         $(document).on('click', '.show-modal', function() {
             $('.modal-title').text('Show');
             $('#id_show').val($(this).data('id'));
             $('#title_show').val($(this).data('title'));
-            $('#content_show').val($(this).data('content'));
+            $('#content_show').val($(this).data('content')); 
             $('#sdate_show').val($(this).data('sdate'));
             $('#edate_show').val($(this).data('edate'));
             $('#showModal').modal('show');

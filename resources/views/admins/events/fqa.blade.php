@@ -4,7 +4,7 @@
 
             <div class="panel panel-default">
               
-                <div class="panel-heading"><a href="{{url('/cfqa')}}" class="btn btn-success">Add New FQA</a></div>
+                <div class="panel-heading"><a href="{{url('admin/cfqa')}}" class="btn btn-success">Add New FQA</a></div>
              
 
                 <div class="panel-body">
@@ -38,11 +38,11 @@
                                           <td>{{$task->user_id}}</td>
                                           <td>
                                              <!-- Button trigger modal -->
-                                            <button class="show-modal btn btn-success" data-id="{{$task->id}}" data-title="{{$task->title}}" data-fqa="{{$task->fqa}}" data-user="{{$task->u_id}}">
+                                            <button class="show-modal btn btn-success" data-id="{{$task->id}}" data-title="{{$task->event}}" data-fqa="{{$task->fqa}}" data-user="{{$task->u_id}}">
                                         <span class="glyphicon glyphicon-eye-open"></span> Show</button>
                                             &nbsp;
                                           
-                                            <a href=" {{ url('delete',$task->id ) }} " onclick="return confirm('Are you sure ?')"><button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove-circle"></span> Delete</button></a>&nbsp;
+                                            <a href=" {{ url('deletefqa',$task->id ) }} " onclick="return confirm('Are you sure ?')"><button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove-circle"></span> Delete</button></a>&nbsp;
                                           </td>
 
 
@@ -85,7 +85,7 @@
                             <div class="modal-body">
                                 <form class="form-horizontal" role="form">
                                     <div class="form-group">
-                                        <label class="control-label col-sm-2" for="name">Event ID:</label>
+                                        <label class="control-label col-sm-2" for="name">ID:</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="id_show" disabled>
                                         </div>
@@ -99,7 +99,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-sm-2" for="fname">FQA:</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="fqa_show" disabled>
+                                            <textarea class="form-control" id="fqa_show" disabled> </textarea>
                                         </div>
                                     </div>
                                      

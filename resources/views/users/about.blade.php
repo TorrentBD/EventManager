@@ -13,7 +13,7 @@
                     {{ $tasks[0]->content }}
 
                     <figure>
-                        <img alt="" class="img-responsive" src="assets/images/about-us.jpg">
+                        <img alt="" class="img-responsive" src="assets/images/about.jpg">
                     </figure>
 
                 </div><!-- /.col-sm-6 -->

@@ -3,15 +3,13 @@
 @section('title','Adding New Event ')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+ 
             <div class="panel panel-default">
-                <div class="panel-heading" style="background-color: #62EEEE; font-size: 24px;font-weight: bold;text-align: center;">Event Information</div>
+                <div class="panel-heading" style="background-color: #62EEEE; font-size: 24px;font-weight: bold;text-align: center;">FQA Information</div>
 
                   
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{url('/addfqa')}}">
+                    <form class="form-horizontal" method="POST" action="{{url('admin/addfqa')}}">
                         {{ csrf_field() }}
                         <div> 
                           <p style="font-weight: bold;font-size: 20px;text-align: center;"> <i class="fas fa-bell"></i> &nbsp All information is Required .</p>      
@@ -52,8 +50,6 @@
                         </div>
                     </form>
                 </div>
-            </div>
         </div>
-    </div>
-</div>
+ 
 @endsection

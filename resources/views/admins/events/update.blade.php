@@ -11,7 +11,7 @@
 
                   
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{url('update',$tasks->id)}}">
+                    <form class="form-horizontal" method="POST" action="{{url('admin/update',$tasks->id)}}">
                         {{ csrf_field() }}
                         <div> 
                           <p style="font-weight: bold;font-size: 20px;text-align: center;"> <i class="fas fa-bell"></i> &nbsp All information is Required .</p>      
@@ -39,10 +39,19 @@
                    
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Event Date</label>
+                            <label for="name" class="col-md-4 control-label">Start Date</label>
 
                             <div class="col-md-6">
-                                <input id="edate" type="date" class="form-control" name="edate" value="{{ $tasks->edate }}" required autofocus>
+                                <input id="sdate" type="date" class="form-control" name="sdate" value="{{ $tasks->sdate }}" required autofocus>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">End Date</label>
+
+                            <div class="col-md-6">
+                                <input id="edate" type="date" class="form-control" name="edate" value="{{ $tasks->sdate }}" required autofocus>
 
                             </div>
                         </div>

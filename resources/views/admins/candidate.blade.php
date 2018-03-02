@@ -42,7 +42,7 @@
                                         <span class="glyphicon glyphicon-eye-open"></span> Show</button>
                                             &nbsp;
                                           
-                                            <a href=" {{ url('delete',$task->id ) }} " onclick="return confirm('Are you sure?')"><button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove-circle"></span> Delete</button></a>&nbsp;
+                                            <a href=" {{ url('deletecand',$task->id ) }} " onclick="return confirm('Are you sure?')"><button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove-circle"></span> Delete</button></a>&nbsp;
                                           </td>
 
 

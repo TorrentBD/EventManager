@@ -16,7 +16,7 @@ class CreateFqasTable extends Migration
         Schema::create('fqas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('event');
-            $table->string('fqa');
+            $table->string('fqa',500);
             $table->string('user_id');
             //$table->timestamps();
         });

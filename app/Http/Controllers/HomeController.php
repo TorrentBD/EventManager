@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 use App\Student;
 use App\Event;
 use App\Fqa;
@@ -18,6 +19,9 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
+
+     protected $r1 = 'admin/about';
+     protected $r2 = 'admin/fqa';  
 
     /**
      * Show the application dashboard.
@@ -37,16 +41,16 @@ class HomeController extends Controller
         return view('admins.candidate')->with('tasks',$users);
     }
 
-
-    public function delete($id)
+    public function deletecand($id)
     {
-        $task = Event::findOrFail($id);
+        $task = Student::findOrFail($id);
 
         $task->delete();
-        return redirect('/home');
+        return redirect('admin/candidate');
     }
 
 
+    //Event...........
     public function about()
     {
         $event = Event::paginate(5);
@@ -61,6 +65,18 @@ class HomeController extends Controller
 
     public function e_create(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+           'title' => 'required|string|max:50',
+           'content' => 'required|string|max:500',
+           'sdate' => 'required',
+           'edate' => 'required|after:sdate',
+        ]);
+
+        if($validator->fails())
+        {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
             $post = new Event();
             $post->title = $request->title;
             $post->content = $request->content;
@@ -69,7 +85,9 @@ class HomeController extends Controller
             $post->user_id = $request->user()->id;
             $post->save();
 
-        return redirect('/about');
+            Session::flash('event_m', 'Successfully Added.....!');
+
+        return redirect('admin/about');
     }
 
     public function edit($id)
@@ -82,14 +100,25 @@ class HomeController extends Controller
     public function update($id, Request $request)
     {
         $task = Event::findOrFail($id);
-         
+        
         $input = $request->all();
 
-        $task->fill($input)->save();         
+        $task->fill($input)->save();
 
-        return redirect('/about');
+        Session::flash('flash_message', 'Successfully updated!');  
+
+        return redirect('admin/about');
     }
 
+    public function delete($id)
+    {
+        $task = Event::findOrFail($id);
+
+        $task->delete();
+        return redirect('admin/about');
+    }
+
+    //fqa.........
     public function fqa()
     {
         $fqa = Fqa::paginate(5);
@@ -106,6 +135,15 @@ class HomeController extends Controller
 
     public function fqaadd(Request $request)
     {
+
+        $validator = Validator::make($request->all(), [
+            'fqa' => 'required',
+        ]);
+
+        if($validator->fails())
+        {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
         $fqa = new Fqa();
 
         $fqa->event = $request->cars;
@@ -113,7 +151,15 @@ class HomeController extends Controller
         $fqa->user_id = $request->user()->id;
         $fqa->save();
 
-        return redirect('/fqa');
+        return redirect('admin/fqa');
+    }
+
+    public function deletefqa($id)
+    {
+        $task = Fqa::findOrFail($id);
+
+        $task->delete();
+        return redirect('admin/fqa');
     }
 
      

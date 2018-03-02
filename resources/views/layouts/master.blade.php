@@ -1,63 +1,85 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>@yield('title','Rag Day 2018')</title>
 
-    <title>@yield('title','RU Event Manager 2018')</title>
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- css -->
+    <link rel="stylesheet" href="{{asset('bootstrap/dist/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('ionicons/css/ionicons.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
+<body >
+    <nav id="site-nav" class="navbar navbar-fixed-top navbar-custom">
+        <div class="container">
+            <div class="navbar-header">
 
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+                <!-- logo -->
+                <div class="site-branding">
+                    <a class="logo" href="{{url('/')}}">
+                        
+                        <!-- logo image  -->
+                        <img src="assets/images/logo.png" width="30" height="30" alt="Logo">
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                         University of Rajshahi
+                        R Day, Faculty of Engineering,RU
                     </a>
                 </div>
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-items" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        
-                            <li><a href="{{ url('/') }}">Student</a></li>
-                            <li><a href="{{ route('login') }}">Admin</a></li>
-                         
-                          
+            </div><!-- /.navbar-header -->
+
+            <div class="collapse navbar-collapse" id="navbar-items">
+                <ul class="nav navbar-nav navbar-right">
+
+                    <!-- navigation menu -->
+                    <li class="active"><a href="{{ url('about') }}">About</a></li>
+                    <li><a href="{{ url('events') }}s">Speakers</a></li>              
+
+                    <li><a href="#">Partner</a></li>                  
+                    <!-- <li><a data-scroll href="#">Sponsorship</a></li> -->
+                    <li><a  href="{{ url('efqa') }}">FAQ</a></li>
+                    <li><a  href="{{ url('events') }}">Photos</a></li>
+                
+                </ul>
+            </div>
+        </div><!-- /.container -->
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                @yield('content')
+            </div>
+        </div>
+    </div>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="site-info">Designed and <br> Developed by <a href="http://technextit.com">H-T-W-M &copy; 2018</a></p>
+                    <ul class="social-block">
+                        <li><a href=""><i class="ion-social-twitter"></i></a></li>
+                        <li><a href=""><i class="ion-social-facebook"></i></a></li>
+                        <li><a href=""><i class="ion-social-linkedin-outline"></i></a></li>
+                        <li><a href=""><i class="ion-social-googleplus"></i></a></li>
                     </ul>
                 </div>
             </div>
-        </nav>
+        </div>
+    </footer>
 
-        @yield('content')
-    </div>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-
+    <!-- script -->
+    <script src="{{asset('jquery/dist/jquery.min.js')}}"></script>
+    <script src="{{asset('bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('smooth-scroll/dist/js/smooth-scroll.min.js')}}"></script>
+    <script src="{{asset('assets/js/main.js')}}"></script>
 </body>
 </html>

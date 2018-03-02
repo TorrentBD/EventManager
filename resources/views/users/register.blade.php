@@ -3,14 +3,12 @@
 @section('title','Register Event ')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
+
+            <div class="panel panel-default" style="margin-top: 100px;">
                 <div class="panel-heading" style="background-color: #62EEEE; font-size: 24px;font-weight: bold;text-align: center;">Register This Event 2018</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{url('create')}}">
+                    <form class="form-horizontal" method="POST" action="{{url('/create')}}">
                         {{ csrf_field() }}
                         <div> 
                           <p style="font-weight: bold;font-size: 20px;text-align: center;"> <i class="fas fa-bell"></i> &nbsp All information is Required .</p>      
@@ -54,7 +52,6 @@
 
                             <div class="col-md-6">
                                 <input id="bdate" type="date" class="form-control" name="bdate" value="" required autofocus>
-
                             </div>
                         </div>
 
@@ -101,7 +98,5 @@
                     </form>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+ 
 @endsection

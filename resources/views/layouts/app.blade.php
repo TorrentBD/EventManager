@@ -78,15 +78,14 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                   <ul class="breadcrumb">
-                    <li class="active">Dashboard</li>
-                    <li><a href="{{url('/home')}}">Home</a></li>
-                    <li><a href="{{url('/candidate')}}">Registered Candidate</a></li>
-                    <li><a href="{{url('/about')}}">About Event</a></li>
-                    <li><a href="{{url('/')}}">Speaker</a></li>
-                    <li><a href="{{url('/')}}">Schedule</a></li>
-                    <li><a href="{{url('/')}}">Partner</a></li>
-                    <li><a href="{{url('/fqa')}}">FAQ</a></li>
-                    <li><a href="{{url('/')}}">Email</a></li>
+                    <li><a href="{{url('admin/home')}}" style="text-decoration:none"><i class="fas fa-home"></i>&nbsp; Home</a></li>
+                    <li><a href="{{url('admin/candidate')}}" style="text-decoration:none"> <i class="far fa-address-book"></i> &nbsp; Registered Candidate</a></li>
+                    <li><a href="{{url('admin/about')}}" style="text-decoration:none"><i class="far fa-calendar-alt"></i>&nbsp; About Event</a></li>
+                    <li><a href="{{url('admin/')}}" style="text-decoration:none">Speaker</a></li>
+                    <li><a href="{{url('admin/')}}" style="text-decoration:none">Schedule</a></li>
+                    <li><a href="{{url('admin/')}}" style="text-decoration:none">Partner</a></li>
+                    <li><a href="{{url('admin/fqa')}}" style="text-decoration:none"><i class="fas fa-eye"></i>&nbsp; FAQ</a></li>
+                    <li><a href="{{url('admin/')}}" style="text-decoration:none"><i class="fas fa-download"></i>&nbsp; Download</a></li>
                   </ul>
                 </div>
             </div>
