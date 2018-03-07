@@ -23,7 +23,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('roll') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Roll</label>
 
                             <div class="col-md-6">
@@ -37,7 +37,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('fname') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Father Name</label>
 
                             <div class="col-md-6">
@@ -47,11 +47,11 @@
                         </div>
                    
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('bdate') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Birth Date</label>
 
                             <div class="col-md-6">
-                                <input id="bdate" type="date" class="form-control" name="bdate" value="" required autofocus>
+                                <input id="bdate" type="date"  min="1994-03-08" max="2001-10-21" class="form-control" name="bdate" value="" required autofocus>
                             </div>
                         </div>
 
@@ -70,7 +70,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Phone No#</label>
 
                             <div class="col-md-6">
@@ -79,7 +79,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('aca') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Education Qualification</label>
 
                             <div class="col-md-6">

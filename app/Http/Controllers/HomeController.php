@@ -68,7 +68,7 @@ class HomeController extends Controller
         $validator = Validator::make($request->all(), [
            'title' => 'required|string|max:50',
            'content' => 'required|string|max:500',
-           'sdate' => 'required',
+           'sdate' => 'required|',
            'edate' => 'required|after:sdate',
         ]);
 
@@ -85,7 +85,7 @@ class HomeController extends Controller
             $post->user_id = $request->user()->id;
             $post->save();
 
-            Session::flash('event_m', 'Successfully Added.....!');
+            //Session::flash('event_m', 'Successfully Added.....!');
 
         return redirect('admin/about');
     }
@@ -105,7 +105,7 @@ class HomeController extends Controller
 
         $task->fill($input)->save();
 
-        Session::flash('flash_message', 'Successfully updated!');  
+        //Session::flash('flash_message', 'Successfully updated!');  
 
         return redirect('admin/about');
     }

@@ -42,12 +42,12 @@
 
                     <!-- navigation menu -->
                     <li class="active"><a href="{{ url('about') }}">About</a></li>
-                    <li><a href="{{ url('events') }}s">Speakers</a></li>              
+                    <li><a href="#">Speakers</a></li>              
 
                     <li><a href="#">Partner</a></li>                  
                     <!-- <li><a data-scroll href="#">Sponsorship</a></li> -->
                     <li><a  href="{{ url('efqa') }}">FAQ</a></li>
-                    <li><a  href="{{ url('events') }}">Photos</a></li>
+                    <li><a  href="#">Photos</a></li>
                 
                 </ul>
             </div>

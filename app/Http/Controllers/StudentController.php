@@ -38,7 +38,7 @@ class StudentController extends Controller
         Mail::to($input['email'])->send(new WelcomeMail($input));
 
 
-        Session::flash('flash_message', 'Successfully Registered.....!');
+        //Session::flash('flash_message', 'Successfully Registered.....!');
  
         return redirect('/');
     }

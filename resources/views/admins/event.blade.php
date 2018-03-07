@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('admins.head')
+         <div class="container">
+            <div class="row">
+          <div class="col-md-10 col-md-offset-1">
                 @if(Session::has('flash_message'))
                     <div class="alert alert-success">
                         {{ Session::get('event_m') }}
@@ -140,6 +144,8 @@
                 </div>
 
             </div>
+
+        </div></div></div>
 
 
 @endsection

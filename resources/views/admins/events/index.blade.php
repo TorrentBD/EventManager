@@ -3,6 +3,10 @@
 @section('title','Adding New Event ')
 
 @section('content')
+@include('admins.head')
+         <div class="container">
+            <div class="row">
+          <div class="col-md-10 col-md-offset-1">
  
             <div class="panel panel-default">
                 <div class="panel-heading" style="background-color: #62EEEE; font-size: 24px;font-weight: bold;text-align: center;">Event Information</div>
@@ -17,7 +21,7 @@
 
                         
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Title</label>
 
                             <div class="col-md-6">
@@ -28,7 +32,7 @@
 
                          
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Description</label>
 
                             <div class="col-md-6">
@@ -39,16 +43,16 @@
 
                    
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('sdate') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Start Date</label>
 
                             <div class="col-md-6">
-                                <input id="sdate" type="date" min="2018-03-03"class="form-control" name="sdate" value=""  required autofocus>
+                                <input id="sdate" type="date" min="{{date('Y-m-d', strtotime('+1 day'))}}" class="form-control" name="sdate" value=""  required autofocus>
 
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('edate') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">End Date</label>
 
                             <div class="col-md-6">
@@ -66,6 +70,6 @@
                         </div>
                     </form>
                 </div>
-            </div>
+            </div></div></div></div>
  
 @endsection

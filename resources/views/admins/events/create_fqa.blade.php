@@ -3,6 +3,10 @@
 @section('title','Adding New Event ')
 
 @section('content')
+    @include('admins.head')
+         <div class="container">
+            <div class="row">
+          <div class="col-md-10 col-md-offset-1">
  
             <div class="panel panel-default">
                 <div class="panel-heading" style="background-color: #62EEEE; font-size: 24px;font-weight: bold;text-align: center;">FQA Information</div>
@@ -50,6 +54,6 @@
                         </div>
                     </form>
                 </div>
-        </div>
+        </div></div></div></div>
  
 @endsection
