@@ -4,13 +4,8 @@
 
 @section('content')
 	<header id="site-header" class="site-header valign-center"> 
+         
         <div class="intro">
-
-        	@if(Session::has('flash_message'))
-    			<div class="alert alert-success">
-        			{{ Session::get('flash_message') }}
-		    	</div>
-			@endif
 
             <h2>25 Freburary, 2018 / Engineering Faculty , RU</h2>
             

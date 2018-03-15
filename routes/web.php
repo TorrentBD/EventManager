@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('users.home');
 });
 Route::get('/signup', function () {
-    return view('users.register');
+    return view('users.signup');
 });
 
 Route::get('/about', 'StudentController@about')->name('about');

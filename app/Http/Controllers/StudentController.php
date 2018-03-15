@@ -20,7 +20,7 @@ class StudentController extends Controller
             'bdate' => 'required|string|max:30',
             'email' => 'required|string|email|max:30|unique:students',
             'phone' => 'required|max:11|min:11',
-            'aca' => 'required|max:100',
+            'aca' => 'required|max:50',
         ]);
 
         if($validator->fails())
@@ -37,10 +37,8 @@ class StudentController extends Controller
 
         Mail::to($input['email'])->send(new WelcomeMail($input));
 
-
-        //Session::flash('flash_message', 'Successfully Registered.....!');
  
-        return redirect('/');
+        return redirect('/')->with('message', 'Successfully Registered !');
     }
 
 

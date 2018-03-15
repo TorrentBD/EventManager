@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="{{asset('bootstrap/dist/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('ionicons/css/ionicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
+    
+    <link rel="stylesheet" href="{{asset('build/css/intlTelInput.css')}}">
+    <link rel="stylesheet" href="{{asset('build/css/demo.css')}}">
 </head>
 <body data-spy="scroll" data-target="#site-nav">
     <nav id="site-nav" class="navbar navbar-fixed-top navbar-custom">
@@ -76,5 +79,12 @@
     <script src="{{asset('bootstrap/dist/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('smooth-scroll/dist/js/smooth-scroll.min.js')}}"></script>
     <script src="{{asset('assets/js/main.js')}}"></script>
+
+    @yield('scripts')
+    <!-- Load jQuery from CDN so can run demo immediately -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{{asset('build/js/intlTelInput.js')}}"></script>
+
+    
 </body>
 </html>
